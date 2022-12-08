@@ -9,4 +9,4 @@ if __name__ == "__main__":
     else:
         print("{} arguments:".format(args - 1))
     for x in range(1, args):
-        print("{} : {}".format(x, sys.argv[x]))
+        print("{} : {}".format(x - 1, sys.argv[x]))
