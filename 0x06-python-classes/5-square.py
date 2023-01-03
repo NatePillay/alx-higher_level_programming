@@ -2,6 +2,7 @@
 # square-3.py by Nathan Pillay
 """Defining a square"""
 
+
 class Square:
     """ a class that represents a square"""
 
@@ -26,7 +27,6 @@ class Square:
         """Retrieves size of square"""
 
         return self.__size
-
 
     @size.setter
     def size(self, value):
