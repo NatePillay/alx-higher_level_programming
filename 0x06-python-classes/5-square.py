@@ -2,7 +2,6 @@
 # square-3.py by Nathan Pillay
 """Defining a square"""
 
-
 class Square:
     """ a class that represents a square"""
 
