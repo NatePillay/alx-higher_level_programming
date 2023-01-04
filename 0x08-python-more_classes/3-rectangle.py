@@ -55,10 +55,14 @@ class Rectangle:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """we want to print the diagram from the metrics given"""
+        if self.__width == 0 or self.__height == 0:
+            return ("")
         rect_str = ""
-        for i in range(self.height):
-            for j in range(self.width):
-                rect_str += '#'
-            rect_str += "\n"
-        print(rect_str)
+        for i in range(self.__height):
+            for j in range(self.__width):
+                rect_str += "#"
+            if i < self.__height - 1:
+                rect_str += "\n"
+        return(rect_str)
