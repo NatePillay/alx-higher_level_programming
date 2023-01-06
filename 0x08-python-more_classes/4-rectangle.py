@@ -2,6 +2,7 @@
 """rectangle class
 """
 
+
 class Rectangle:
     """makes rectangle object
     """
