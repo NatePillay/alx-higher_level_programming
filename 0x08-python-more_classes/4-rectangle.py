@@ -47,19 +47,19 @@ class Rectangle:
 
         def area(self):
             """Returns the area of a rectangle"""
-            return (self.__width * self.__height)
+            return (self.width * self.height)
 
         def perimeter(self):
             """Returns the perimeter of a rectangle"""
             if self.__width == 0 or self.__height == 0:
                 return (0)
-            return ((self.__width * 2) + (self.__height * 2))
+            return ((self.width * 2) + (self.height * 2))
 
         def __str__(self):
             """Returns a shape made with #'s"""
-            if self.__width == 0 or self.__height == 0:
+            if not self.perimeter:
                 return ("")
-            return (("#" * self.__width + "\n") * (self.__height))[:-1]
+            return ('\n'.join('#' * seld.width for x in range(self.height)))
         
         def __repr__(self):
             return ("Rectangle({}, {})".format(self.__width, self.__height))
