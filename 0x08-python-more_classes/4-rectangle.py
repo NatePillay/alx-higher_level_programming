@@ -62,4 +62,5 @@ class Rectangle:
             return ('\n'.join('#' * seld.width for x in range(self.height)))
         
         def __repr__(self):
+            """modifies repr object"""
             return ("Rectangle({}, {})".format(self.width, self.height))
