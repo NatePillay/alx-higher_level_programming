@@ -24,6 +24,7 @@ class Rectangle:
 
         @width.setter
         def width(self, value):
+            """sets width"""
             if not isinstance(value, int):
                 raise TypeError("width must be an integer")
             if value < 0:
@@ -37,6 +38,7 @@ class Rectangle:
 
         @height.setter
         def height(self, value):
+            """retrieves the height"""
             if not isinstance(value, int):
                 raise TypeError("height must be an integer")
             if value < 0:
@@ -60,4 +62,4 @@ class Rectangle:
             return (("#" * self.__width + "\n") * (self.__height))[:-1]
         
         def __repr__(self):
-            return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+            return ("Rectangle({}, {})".format(self.__width, self.__height))
