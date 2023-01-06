@@ -51,18 +51,18 @@ class Rectangle:
             """Returns the perimeter of a rectangle"""
             if self.__width == 0 or self.__height == 0:
                 return (0)
-            return (2 * (self.__width + self.__height))
+            return ((self.__width * 2) + (self.__height * 2))
 
         def __str__(self) -> str:
             """Returns a shape made with #'s"""
             if self.__width == 0 or self.__height == 0:
                 return ("")
-            rectangle = ''
+            rectangle = ""
             for i in range(self.__height):
                 for j in range(self.__width):
-                    rectangle += '#'
+                    rectangle += "#"
                 if i < self.__height - 1:
-                    rectangle += '\n'
+                    rectangle += "\n"
             return (rectangle)
         
         def __repr__(self):
