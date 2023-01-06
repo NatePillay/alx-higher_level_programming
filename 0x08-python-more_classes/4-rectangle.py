@@ -67,4 +67,4 @@ class Rectangle:
             return rectangle
         
         def __repr__(self):
-            return f'Rectangle({self.__width!r},{self.__height!r})'
+            return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
