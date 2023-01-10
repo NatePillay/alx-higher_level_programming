@@ -10,5 +10,5 @@ class Rectangle(BaseGeometry):
         """including our weight and height attribute"""
         self.__width = width
         self.__height = height
-        integer_validator("width",width)
-        integer_validator("height",height)
+        self.integer_validator("width",width)
+        self.nteger_validator("height",height)
