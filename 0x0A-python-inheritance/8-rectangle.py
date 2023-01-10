@@ -9,5 +9,5 @@ class Rectangle:
         """including our weight and height attribute"""
         self.__width = width
         self.__height = height
-        super().integer_validator("width",width)
-        super().integer_validator("height",height)
+        integer_validator("width",width)
+        integer_validator("height",height)
