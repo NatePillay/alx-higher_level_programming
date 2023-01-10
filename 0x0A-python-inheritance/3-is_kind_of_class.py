@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 """function to check if object is instance of a class or obj from inherited class"""
 
 
