@@ -3,6 +3,6 @@
 
 
 def read_file(filename=""):
-    """function to read the data out"""
+    """function to print the text of UTF-8"""
     with open('workfile', encoding="utf-8") as f:
-        read_data = f.read()
+        print(f.read(), end="")
