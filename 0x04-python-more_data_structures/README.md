@@ -76,3 +76,70 @@ my_tuple = (1, 2, 3, 4, 5)
 my_list = list(my_tuple)
 print(my_list)
 In this code, list() is used to convert the my_tuple tuple to a list. The resulting list is then printed, and the output is [1, 2, 3, 4, 5].
+
+
+Write a function that adds all unique integers in a list (only once for each integer).
+
+Prototype: def uniq_add(my_list=[]):
+You are not allowed to import any module
+
+Sure, here's an implementation of the requested function:
+
+python
+Copy code
+def uniq_add(my_list=[]):
+    # Use a set to keep track of unique integers
+    unique_integers = set()
+    
+    # Iterate through each element of the input list
+    for element in my_list:
+        # If the element is an integer and not already in the set, add it to the set
+        if isinstance(element, int) and element not in unique_integers:
+            unique_integers.add(element)
+    
+    # Compute the sum of the unique integers in the set
+    sum_unique_integers = sum(unique_integers)
+    
+    return sum_unique_integers
+This function takes a list as input and returns the sum of all unique integers in the list (that is, integers that appear only once in the list). The function uses a set to keep track of the unique integers and iterates through each element of the input list. If the element is an integer and not already in the set, it is added to the set. Finally, the function computes the sum of the unique integers in the set and returns the result.
+
+Note that the function checks if each element is an integer using the isinstance() function, which returns True if the element is an instance of the specified class. This is necessary to avoid adding non-integer elements (such as strings or other objects) to the set.
+
+
+
+
+nathan94pillay@gmail.com
+explain set
+
+Certainly!
+
+In Python, a set is an unordered collection of unique elements. A set can contain any hashable object, such as integers, strings, or tuples (as long as the tuples contain only hashable objects). Sets are similar to lists and tuples, but they have two key differences:
+
+Sets are unordered: unlike lists and tuples, sets do not have a defined order, which means that the elements of a set cannot be accessed by their position in the set.
+
+Sets contain only unique elements: a set can contain each element only once, so if an element is already in the set, adding it again has no effect.
+
+Sets are defined using curly braces {} or the set() function. For example, the following code creates a set containing three integers:
+
+python
+Copy code
+my_set = {1, 2, 3}
+or
+
+python
+Copy code
+my_set = set([1, 2, 3])
+The set() function can also be used to convert an iterable (such as a list or tuple) to a set.
+
+Once a set is created, you can add and remove elements using the add() and remove() methods, respectively. For example:
+
+python
+Copy code
+my_set = {1, 2, 3}
+my_set.add(4)
+my_set.remove(2)
+In this example, the add() method is used to add the integer 4 to the set, and the remove() method is used to remove the integer 2 from the set.
+
+Sets also support various set operations such as union (|), intersection (&), and difference (-), which allow you to combine or compare sets in various ways.
+
+In the implementation of the uniq_add() function I provided earlier, a set is used to keep track of the unique integers in the input list. The add() method is used to add each integer to the set, and the sum() function is used to compute the sum of the unique integers in the set.
