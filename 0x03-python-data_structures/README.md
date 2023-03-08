@@ -120,3 +120,31 @@ At the end of the loop, the max_item variable will contain the largest item in t
 Note that this method only works for lists containing comparable data types, such as integers or floats. If you have a list containing mixed data types, or non-comparable data types, this method may not work as expected.
 
 
+
+USING AN APPEND
+Write a function that finds all multiples of 2 in a list.
+
+Prototype: def divisible_by_2(my_list=[]):
+Return a new list with True or False, depending on whether the integer at the same position in the original list is a multiple of 2
+The new list should have the same size as the original list
+You are not allowed to import any module
+
+#!/usr/bin/python3
+
+def divisible_by_2(my_list=[]):
+    new_list = []
+    for item in my_list:
+        if item % 2 == 0:
+            new_list.append(True)
+        else:
+            new_list.append(False)
+
+    return new_list
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+
+
