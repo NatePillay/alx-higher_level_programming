@@ -143,3 +143,45 @@ In this example, the add() method is used to add the integer 4 to the set, and t
 Sets also support various set operations such as union (|), intersection (&), and difference (-), which allow you to combine or compare sets in various ways.
 
 In the implementation of the uniq_add() function I provided earlier, a set is used to keep track of the unique integers in the input list. The add() method is used to add each integer to the set, and the sum() function is used to compute the sum of the unique integers in the set.
+
+
+
+
+
+Write a function that returns a set of common elements in two sets.
+
+Prototype: def common_elements(set_1, set_2):
+You are not allowed to import any module
+
+Sure, here's an implementation of the requested function:
+
+python
+Copy code
+def common_elements(set_1, set_2):
+    # Use the & operator to compute the intersection of the two sets
+    common_set = set_1 & set_2
+    
+    return common_set
+This function takes two sets as input and returns a new set containing the common elements of the two sets (that is, elements that appear in both sets). The function uses the & operator to compute the intersection of the two sets, which returns a new set containing the elements that are common to both sets. Finally, the function returns the new set.
+
+Note that sets in Python automatically remove duplicates, so the resulting set will not contain any duplicate elements. Also note that sets in Python are unordered, so the order of the elements in the resulting set may be different from the order of the elements in the input sets.
+
+
+
+
+nathan94pillay@gmail.com
+what is the operator to return unique elements in 2 sets
+
+To return the unique elements in two sets (that is, elements that are in one set but not the other), you can use the symmetric difference operator ^. The ^ operator returns a new set containing the elements that are unique to each set, that is, the elements that are in one set or the other, but not in both.
+
+Here's an example of how to use the ^ operator:
+
+python
+Copy code
+set_1 = {1, 2, 3}
+set_2 = {2, 3, 4}
+unique_set = set_1 ^ set_2
+print(unique_set)
+In this example, the two input sets are set_1 and set_2. The ^ operator is used to compute the symmetric difference of the two sets, which returns a new set containing the elements that are unique to each set: {1, 4}. The resulting set unique_set is then printed to the console.
+
+Note that, as with the intersection operator &, the ^ operator returns a new set and does not modify the original sets. Also note that sets in Python are unordered, so the order of the elements in the resulting set may be different from the order of the elements in the input sets.
