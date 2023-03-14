@@ -90,6 +90,16 @@ Since we want to set teaches when a new Professor is created, we define a constr
 
 Note: If a subclass has any of its own initialization to do, it must first call the superclass constructor using super(), passing up any parameters that the superclass constructor is expecting.
 
+
+
+With this declaration we can now create and use professors:
+
+const walsh = new Professor('Walsh', 'Psychology');
+walsh.introduceSelf();  // 'My name is Walsh, and I will be your Psychology professor'
+
+walsh.grade('my paper'); // some random grade
+
+
 ============================================
 
 In JavaScript, the Math object provides a set of built-in methods that allow you to perform mathematical operations. You can use the Math object and its methods directly in your JavaScript code by calling them with the dot notation.
@@ -124,3 +134,66 @@ const absoluteValue = Math.abs(number);
 console.log(absoluteValue); // Output: 5
 
 These are just a few examples of the many methods available in the Math object. You can refer to the JavaScript documentation to learn more about the different methods and how to use them.
+
+
+
+
+=========================================
+
+
+Here's a declaration of the Student class that does just that:
+
+class Student extends Person {
+
+  #year;
+
+  constructor(name, year) {
+    super(name);
+    this.#year = year;
+  }
+
+
+  introduceSelf() {
+    console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+  }
+
+  canStudyArchery() {
+    return this.#year > 1;
+  }
+
+}
+Copy to ClipboardCopy to Clipboard
+In this class declaration, #year is a private data property. We can construct a Student object, and it can use #year internally, but if code outside the object tries to access #year the browser throws an error:
+
+const summers = new Student('Summers', 2);
+
+summers.introduceSelf(); // Hi! I'm Summers, and I'm in year 2.
+summers.canStudyArchery(); // true
+
+summers.#year; // SyntaxError
+Copy to ClipboardCopy to Clipboard
+Private data properties must be declared in the class declaration, and their names start with #.
+
+
+===========================================
+
+Private methods
+You can have private methods as well as private data properties. Just like private data properties, their names start with #, and they can only be called by the object's own methods:
+
+class Example {
+  somePublicMethod() {
+    this.#somePrivateMethod();
+  }
+
+  #somePrivateMethod() {
+    console.log('You called me?');
+  }
+}
+
+const myExample = new Example();
+
+myExample.somePublicMethod(); // 'You called me?'
+
+myExample.#somePrivateMethod(); // SyntaxError
+
+
