@@ -9,4 +9,4 @@ if (list[i] === searchElement) {
  }
 
 return (count)
-}
+};
