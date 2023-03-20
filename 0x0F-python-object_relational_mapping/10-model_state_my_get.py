@@ -17,5 +17,6 @@ if __name__ == "__main__":
     for state in session.query(State):
         if state.name == argv[4]:
             print(state.id)
-        else:
-            print("Not found")
+            break
+    else:
+        print("Not found")
