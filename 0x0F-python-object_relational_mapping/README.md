@@ -17,3 +17,32 @@ fetchmany(size=None): Fetches the next set of rows from the result set returned 
 close(): Closes the cursor and releases any resources it is holding.
 
 In the context of your code, the line c = db.cursor() creates a cursor object that you can use to execute SQL queries and fetch results from the db connection. You can then use the cursor to execute a query to retrieve all the rows from the states table, and fetch the results using one of the cursor's fetch methods.
+
+
+
+
+
+nathan94pillay@gmail.com
+declarative_base
+
+declarative_base is a function provided by the SQLAlchemy library for Python, which is used to create a base class that can be used to define declarative classes.
+
+Declarative classes are a way of defining database tables and their relationships using Python classes instead of SQL statements. They allow developers to define database schema using an object-oriented syntax, which can make the code easier to read and maintain.
+
+The declarative_base function returns a new base class for declarative classes to inherit from. When defining a new declarative class, the developer can subclass this base class and define the table and its columns as attributes of the class.
+
+For example, here is a simple example of how declarative_base can be used to define a table called User:
+
+sql
+Copy code
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    age = Column(Integer)
+In this example, declarative_base is called to create a base class Base, which is then subclassed to define the User class. The __tablename__ attribute specifies the name of the database table, and the Column objects define the columns of the table.
