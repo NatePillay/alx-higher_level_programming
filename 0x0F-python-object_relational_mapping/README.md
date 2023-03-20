@@ -46,3 +46,25 @@ class User(Base):
     name = Column(String)
     age = Column(Integer)
 In this example, declarative_base is called to create a base class Base, which is then subclassed to define the User class. The __tablename__ attribute specifies the name of the database table, and the Column objects define the columns of the table.
+
+
+
+nathan94pillay@gmail.com
+
+
+    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        argv[1], argv[2], argv[3])
+    engine = create_engine(db_uri)
+    Session = sessionmaker(bind=engine)
+
+The code you provided is a Python code snippet that sets up a database connection using the SQLAlchemy library for Python.
+
+The db_uri variable contains a connection string that specifies the database to connect to, the username and password to use for authentication, and the driver to use for the database. In this case, the driver is mysql+mysqldb, indicating that the database is a MySQL database.
+
+The values for the username, password, and database name are taken from the command line arguments argv[1], argv[2], and argv[3], respectively. These values are passed into the connection string using Python's format() method.
+
+The create_engine() function is then used to create a database engine object based on the connection string. The engine object is responsible for connecting to the database and executing SQL queries.
+
+Finally, the sessionmaker() function is used to create a session factory object that is bound to the engine. The session factory is responsible for creating new sessions that can be used to query and modify the database. The bind argument specifies the engine to use for connecting to the database.
+
+Once the engine and session factory are created, they can be used to interact with the database by creating and using SQLAlchemy's ORM (Object-Relational Mapping) objects, such as declarative classes, which can represent tables and their relationships as Python classes.
