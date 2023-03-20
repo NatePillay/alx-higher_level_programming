@@ -68,3 +68,60 @@ The create_engine() function is then used to create a database engine object bas
 Finally, the sessionmaker() function is used to create a session factory object that is bound to the engine. The session factory is responsible for creating new sessions that can be used to query and modify the database. The bind argument specifies the engine to use for connecting to the database.
 
 Once the engine and session factory are created, they can be used to interact with the database by creating and using SQLAlchemy's ORM (Object-Relational Mapping) objects, such as declarative classes, which can represent tables and their relationships as Python classes.
+
+
+
+
+
+
+In SQLAlchemy, the like method is used to apply a SQL LIKE operator to a column expression, while the .like attribute is used to access a column expression that has the LIKE operator applied to it. In other words, if you want to use a LIKE operator in a query, you can either pass the LIKE operator directly to the filter method, or you can apply it to the column expression first and then pass the resulting expression to the filter method.
+
+Here's an example that demonstrates both approaches:
+
+python
+Copy code
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+
+# create the database engine
+engine = create_engine('sqlite:///my_database.db', echo=True)
+
+# create a session factory
+Session = sessionmaker(bind=engine)
+
+# create a base class for declarative models
+Base = declarative_base()
+
+# define the model class
+class MyTable(Base):
+    __tablename__ = 'my_table'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    age = Column(Integer)
+
+# create the table if it doesn't exist
+Base.metadata.create_all(engine)
+
+# get user input
+name_input = input("Enter name to search for: ")
+
+# query the database using the LIKE operator directly
+with Session() as session:
+    results = session.query(MyTable).filter(MyTable.name.like(f'%{name_input}%')).all()
+
+# display the results
+for result in results:
+    print(f"id={result.id}, name={result.name}, age={result.age}")
+
+# query the database using the LIKE operator applied to a column expression
+with Session() as session:
+    name_expr = MyTable.name.like(f'%{name_input}%')
+    results = session.query(MyTable).filter(name_expr).all()
+
+# display the results
+for result in results:
+    print(f"id={result.id}, name={result.name}, age={result.age}")
+In this example, the first query uses the LIKE operator directly in the filter method, while the second query first applies the LIKE operator to the name column expression using the .like attribute, and then passes the resulting expression to the filter method.
+
+Regarding your second question, a session in SQLAlchemy is an object that represents a single transaction with a database. It provides a high-level interface for interacting with the database, including querying and modifying data. In the example code you provided, the session object is used to query the State table, delete the records that match the LIKE condition, and commit the changes to the database.
