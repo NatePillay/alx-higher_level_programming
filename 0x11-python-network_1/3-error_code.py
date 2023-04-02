@@ -9,12 +9,12 @@ from urllib.error import HTTPError
 if __name__ == '__main__':
     url = argv[1]
     req = Request(url)
-    with urlopen(req) as response:
-        try:
-            print(response.read().decode('utf-8'))
+    try:
+        with urlopen(req) as response:
+        print(response.read().decode('utf-8'))
 
-        except HTTPError as e:
-            print('Error code: {}'.format(e.code))
+    except HTTPError as e:
+        print('Error code: {}'.format(e.code))
 
 
 
