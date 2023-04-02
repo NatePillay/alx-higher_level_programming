@@ -13,6 +13,3 @@ if __name__ == '__main__':
 
     except HTTPError as e:
         print('Error code: {}'.format(e.code))
-
-
-
