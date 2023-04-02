@@ -2,13 +2,10 @@
 """  fetches https://alx-intranet.hbtn.io/status """
 
 if __name__ == "__main__":
-    from urllib.request import urlopen, Request
+    from requests import get
 
     url = "https://alx-intranet.hbtn.io/status"
-    req = Request(url)
-    with urlopen(req) as res:
-        content = res.read()
-
+    req = get(url)
     print("Body response:")
-    print('\t- type:', type(response.content))
-    print('\t- content:', response.content.decode('utf-8'))
+    print('\t- type:', type(req.text))
+    print('\t- content:', req.text)
