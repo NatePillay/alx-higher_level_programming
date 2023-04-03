@@ -185,3 +185,26 @@ print(unique_set)
 In this example, the two input sets are set_1 and set_2. The ^ operator is used to compute the symmetric difference of the two sets, which returns a new set containing the elements that are unique to each set: {1, 4}. The resulting set unique_set is then printed to the console.
 
 Note that, as with the intersection operator &, the ^ operator returns a new set and does not modify the original sets. Also note that sets in Python are unordered, so the order of the elements in the resulting set may be different from the order of the elements in the input sets.
+
+
+
+MAP:
+Certainly! Here's an explanation of map() and lambda functions in Python:
+
+map() function:
+The map() function is a built-in Python function that applies a given function to each element of an iterable (e.g., a list, tuple, or string) and returns a map object that can be converted into a list, tuple, or set using the appropriate constructor (e.g., list(), tuple(), or set()). The syntax of the map() function is as follows:
+
+scss
+Copy code
+map(function, iterable)
+where function is the function to apply to each element of the iterable, and iterable is the iterable object (e.g., list, tuple, or string) that you want to apply the function to.
+
+lambda function:
+A lambda function is a small, anonymous function in Python. It can take any number of arguments, but can only have one expression. Lambda functions are defined using the lambda keyword, followed by a comma-separated list of arguments (if any), a colon :, and the expression to be evaluated. The syntax of a lambda function is as follows:
+
+python
+Copy code
+lambda arguments: expression
+where arguments is the comma-separated list of arguments that the function takes in, and expression is the expression to be evaluated.
+
+In the context of the multiply_list_map function, we use a lambda function with map() to multiply each element of the input list my_list by the input number number. The lambda function takes a single argument x (which represents each element of my_list) and returns the value of x * number. The map() function applies this lambda function to each element of my_list and returns a map object, which we then convert into a list using the list() constructor. The resulting list contains the original elements of my_list, but with each element multiplied by number.
