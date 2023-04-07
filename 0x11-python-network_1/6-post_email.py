@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#take in URL and email
+"""take in URL and email"""
 import requests
 from sys import argv
 
