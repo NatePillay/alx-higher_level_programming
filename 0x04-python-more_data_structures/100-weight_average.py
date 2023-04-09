@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ calculate the weighted average of a tuple of numbers"""
 
+
 def weight_average(my_list=[]):
     if my_list:
         weight = 0
