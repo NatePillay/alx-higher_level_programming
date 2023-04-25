@@ -7,7 +7,7 @@ request(endpoint, (error, response, body) => {
 	if (error) throw error;
 	
 	JSON.parse(body).results.forEach(result => {
-		result.character.forEach(character => {
+		result.characters.forEach(character => {
 			if (character.endsWith('18/')) count++;
 			});
 		});
