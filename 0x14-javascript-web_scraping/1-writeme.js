@@ -9,4 +9,5 @@ fs.writeFile(filePath, stringWrite, 'utf-8', (err, data) => {
 		console.error(err);
 	} else {
 		console.log(data);
+	}
 });	
